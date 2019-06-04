@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="form">
+        <label for="inpBredde">Bredde:</label>
+        <input id="inpBredde" type="text" placeholder="px">
+        <label for="inpHoyde">Høyde:</label>
+        <input id="inpHoyde" type="text" placeholder="px">
+        <button id="btnRegn" type="button" name="button">Regn ut</button>
+      </div>
+      <div id="resultat">
+        <img id="imgResultat" src="">
+        <p id="pResultat"></p>
+      </div>
+    </div>
+
+    <script>
+      const inpBredde = document.querySelector("#inpBredde");
+      const inpHoyde = document.querySelector("#inpHoyde");
+      const btnReg = document.querySelector("#btnRegn");
+      const imgResultat = document.querySelector("#imgResultat");
+      const pResultat = document.querySelector("#pResultat");
+
+      btnRegn.onclick = function(){
+        let bredde = Number(inpBredde.value);
+        let hoyde = Number(inpHoyde.value);
+        let piksler = hoyde * bredde;
+        let megapiksler = piksler / 1000;
+
+        pResultat.innerHTML = `Antall piksler: <b>${piksler}</b>. Antall megapiksler: <b>${megapiksler}</b>.`;
+      }
+    </script>
+  </body>
+</html>
