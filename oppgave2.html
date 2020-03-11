@@ -5,34 +5,50 @@
     <title></title>
   </head>
   <body>
-    <div id="container">
-      <div id="form">
-        <label for="inpBredde">Bredde:</label>
-        <input id="inpBredde" type="text" placeholder="px">
-        <label for="inpHoyde">Høyde:</label>
-        <input id="inpHoyde" type="text" placeholder="px">
-        <button id="btnRegn" type="button" name="button">Regn ut</button>
+    <div>
+      <label for="inpBredde">Bredde:</label>
+      <input id="inpBredde" type="text">
+      <label for="inpHoyde">Høyde:</label>
+      <input id="inpHoyde" type="text">
+
+      <button id="btnRegn" type="button" name="button">Regn ut</button>
+    </div>
+    <div>
+      <div id="divResultat">
+
       </div>
-      <div id="resultat">
-        <img id="imgResultat" src="">
-        <p id="pResultat"></p>
-      </div>
+      <img src="">
+
     </div>
 
-    <script>
+    <script type="text/javascript">
       const inpBredde = document.querySelector("#inpBredde");
       const inpHoyde = document.querySelector("#inpHoyde");
-      const btnReg = document.querySelector("#btnRegn");
-      const imgResultat = document.querySelector("#imgResultat");
-      const pResultat = document.querySelector("#pResultat");
+      const btnRegn = document.querySelector("#btnRegn");
+      const img = document.querySelector("img");
+      const divResultat = document.querySelector("#divResultat");
 
       btnRegn.onclick = function(){
         let bredde = Number(inpBredde.value);
         let hoyde = Number(inpHoyde.value);
-        let piksler = hoyde * bredde;
-        let megapiksler = piksler / 1000;
 
-        pResultat.innerHTML = `Antall piksler: <b>${piksler}</b>. Antall megapiksler: <b>${megapiksler}</b>.`;
+        if(bredde > 1920){
+          divResultat.innerHTML = `Hva er det du driver med? Bildet er alt for stort!!!!!!!`;
+        }
+        else{
+          if(bredde > hoyde){
+            img.src = "liggende.jpg";
+          }
+          else if(bredde < hoyde){
+            img.src = "staende.jpg";
+          }
+          else{
+            img.src = "kvadrat.jpg";
+          }
+          let piksler = bredde * hoyde;
+          let megapiksler = piksler / 1000000;
+          divResultat.innerHTML = `Antall piksler = ${piksler} px. Antall megapiksler = ${megapiksler} mpx`;
+        }
       }
     </script>
   </body>
