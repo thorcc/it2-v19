@@ -1,11 +1,5 @@
 # IT2 - våren 2019
 
-## TODO:
-
-* CSS
-* Bilder
-* Tekstoppgaver
-
 ## Ferdige løsninger:
 
 * [Oppgave 1](https://thorcc.github.io/it2-v19/oppgave1/oppgave1.html)
